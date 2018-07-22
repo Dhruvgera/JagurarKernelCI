@@ -134,10 +134,12 @@ if [[ ${success} == true ]]; then
 source common
 message="CI build of Jaguar Kernel completed with the latest commit."
 
-curl -s -X POST https://api.telegram.org/bot$BOT_API_KEY/sendMessage -d text="$message" -d chat_id=$CHAT_ID
+# curl -s -X POST https://api.telegram.org/bot$BOT_API_KEY/sendMessage -d text="$message" -d chat_id=$CHAT_ID
+curl -F chat_id="-1001304675095" -F document=@"${ZIP_DIR}/$ZIPNAME" -F caption="CI build completed with latest commit." https://api.telegram.org/bot$BOT_API_KEY/sendDocument
+
 curl -s -X POST https://api.telegram.org/bot$BOT_API_KEY/sendMessage -d text="Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds."  -d chat_id=$CHAT_ID
 curl -s -X POST https://api.telegram.org/bot$BOT_API_KEY/sendSticker -d sticker="CAADBQADFQADIIRIEhVlVOIt6EkuAgc"  -d chat_id=$CHAT_ID
-curl -F document=@$url caption="Latest Build." https://api.telegram.org/bot$BOT_API_KEY/sendDocument -d chat_id=$CHAT_ID
+# curl -F document=@$url caption="Latest Build." https://api.telegram.org/bot$BOT_API_KEY/sendDocument -d chat_id=$CHAT_ID
 
 # curl -s -X POST https://api.telegram.org/bot$BOT_API_KEY/sendMessage -d text="$(git log --pretty=format:'%h : %s' -1)" -d chat_id=$CHAT_ID
 
