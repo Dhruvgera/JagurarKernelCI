@@ -38,9 +38,6 @@ fi
 
 mkdir -p ${KERNELDIR}/aroma
 mkdir -p ${KERNELDIR}/files
-# mkdir -p ${KERNELDIR}/${DEVICE}
-#cd ${KERNELDIR}/aroma
-#git clone https://github.com/VRanger/AnyKernel2.git -b kenzo
 
 export SRCDIR="${KERNELDIR}";
 export OUTDIR="${KERNELDIR}/out";
@@ -50,13 +47,13 @@ export ARCH="arm64";
 export SUBARCH="arm64";
 export KBUILD_BUILD_USER="InfiniteEplus"
 export KBUILD_BUILD_HOST="TeamQuantum"
-export TOOLCHAIN="${HOME}/GNU/GCC8/";
+export TOOLCHAIN="${HOME}/gcc-linaro-5.5.0-2017.10-x86_64_aarch64-linux-gnu/";
 export DEFCONFIG="santoni_defconfig";
 export ZIP_DIR="${KERNELDIR}/files/";
 export IMAGE="${OUTDIR}/arch/${ARCH}/boot/Image.gz-dtb";
 
 if [[ -z "${JOBS}" ]]; then
-    export JOBS="$(grep -c '^processor' /proc/cpuinfo)";
+    export JOBS="$(nproc --all)";
 #    export JOBS=64;
 fi
 
