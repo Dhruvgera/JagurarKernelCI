@@ -45,7 +45,7 @@ export ANYKERNEL="${KERNELDIR}/AnyKernel2/";
 export AROMA="${KERNELDIR}/aroma/";
 export ARCH="arm64";
 export SUBARCH="arm64";
-export KBUILD_BUILD_USER="InfiniteEplus"
+export KBUILD_BUILD_USER="DhruvGera"
 export KBUILD_BUILD_HOST="TeamQuantum"
 export TOOLCHAIN="${HOME}/gcc-linaro-5.5.0-2017.10-x86_64_aarch64-linux-gnu/";
 export DEFCONFIG="santoni_defconfig";
@@ -132,7 +132,7 @@ if [[ ${success} == true ]]; then
     echo -e "Uploading ${ZIPNAME} to https://transfer.sh/";
     transfer "${FINAL_ZIP}";
 source common
-message="CI build of Jaguar Kernel completed with the latest commit."
+message="CI build of Positron Kernel completed with the latest commit."
 time="Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds."
 
 curl -s -X POST https://api.telegram.org/bot$BOT_API_KEY/sendMessage -d text="$(git log --pretty=format:'%h : %s' -5)" -d chat_id="-1001304675095"
