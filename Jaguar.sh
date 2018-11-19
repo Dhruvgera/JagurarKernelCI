@@ -122,9 +122,9 @@ cd -;
 if [ -f "$FINAL_ZIP" ];
 then
 echo -e "$ZIPNAME zip can be found at $FINAL_ZIP";
-if [[ ${success} == true ]]; then
-    echo -e "Uploading ${ZIPNAME} to https://transfer.sh/";
-    transfer "${FINAL_ZIP}";
+
+
+
 source common
 message="CI build of Rockstar Kernel completed with the latest commit."
 time="Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds."
