@@ -18,13 +18,7 @@ sed -e 's/gcc//')";
 	fi
 }
 
-function transfer() {
-	zipname="$(echo $1 | awk -F '/' '{print $NF}')";
-	url="$(curl -# -T $1 https://transfer.sh)";
-	printf '\n';
-	echo -e "Download ${zipname} at ${url}";
-    curl -s -X POST https://api.telegram.org/bot$BOT_API_KEY/sendMessage -d text="$url" -d chat_id=$CHAT_ID
-}
+
 
 if [[ -z ${KERNELDIR} ]]; then
     echo -e "Please set KERNELDIR";
