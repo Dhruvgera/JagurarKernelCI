@@ -76,7 +76,7 @@ export KBUILD_BUILD_HOST="TeamFred"
 
 export TOOLCHAIN="${HOME}/gcc-linaro-5.5.0-2017.10-x86_64_aarch64-linux-gnu/";
 
-export DEFCONFIG="santonidefconfig";
+export DEFCONFIG="santoni_treble_defconfig";
 
 export ZIP_DIR="${KERNELDIR}/files/";
 
